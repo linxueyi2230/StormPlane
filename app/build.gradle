@@ -34,5 +34,5 @@ tasks.withType(JavaCompile) {
 dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation project(':shadow4')
-    implementation (name:'mi-v1.5',ext:'aar')
+    implementation (name:'mi-v1.6',ext:'aar')
 }
