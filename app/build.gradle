@@ -5,12 +5,18 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.shadow.stormplane"
+        applicationId "com.shadow.stormplane.mi"
         minSdkVersion 17
         targetSdkVersion 22
         manifestPlaceholders = [
-                jpush_appkey : '8c40ddcb9af5eeb071018548'
+                jpush_appkey : '5de8bc95fba092abf6c4749f'
         ]
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
     }
 
     buildTypes {
@@ -28,4 +34,5 @@ tasks.withType(JavaCompile) {
 dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation project(':shadow4')
+    implementation (name:'mi-v1.5',ext:'aar')
 }

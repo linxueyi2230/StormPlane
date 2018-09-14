@@ -8,8 +8,10 @@ import android.os.Message;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.ego.game.mi.ad.Ad;
 import com.hurteng.stormplane.constant.ConstantUtil;
 import com.hurteng.stormplane.constant.DebugConstant;
 import com.hurteng.stormplane.sounds.GameSoundPool;
@@ -22,6 +24,7 @@ public class MainActivity extends Activity {
     private MainView mainView;
     private ReadyView readyView;
     private GameSoundPool sounds;
+    private Ad ad = Ad.of();
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -47,8 +50,15 @@ public class MainActivity extends Activity {
         sounds.initGameSound();
 
         readyView = new ReadyView(this, sounds);
-        setContentView(readyView);
 
+        RelativeLayout rv = new RelativeLayout(this);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        rv.setLayoutParams(params);
+        rv.addView(readyView);
+        setContentView(rv);
+
+        ad.onFloat(this,rv);
+        ad.show("37e88067408511c55c61e9d3f5972fa2");
     }
 
     /**
@@ -102,6 +112,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ad.onDestroy();
     }
 
 

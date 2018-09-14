@@ -2,7 +2,9 @@ package com.hurteng.stormplane;
 
 import android.app.Application;
 
+import com.ego.game.mi.Mi;
 import com.ego.shadow.Shadow;
+import com.hurteng.stormplane.myplane.BuildConfig;
 
 /**
  * @author lxy
@@ -13,5 +15,6 @@ public class Game extends Application {
     public void onCreate() {
         super.onCreate();
         Shadow.init(this,"1809011253",MainActivity.class);
+        Mi.init(this,"2882303761517864333","5261786449333", BuildConfig.DEBUG);
     }
 }
