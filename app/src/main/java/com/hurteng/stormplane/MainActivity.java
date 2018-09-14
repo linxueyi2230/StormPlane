@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
         setContentView(rv);
 
         ad.onFloat(this,rv);
-        ad.show("37e88067408511c55c61e9d3f5972fa2");
+        ad.show("3d7445607c88d907aa729994668731a6");
     }
 
     /**
